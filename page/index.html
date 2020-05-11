@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+        <span>个人博客 | 技术博客</span>
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="/sitemap.html">地图</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/guest.html">留言</a></li>
+                <li><a href="/edit_blog.html">add</a></li>
+
+            </ul>
+            <input type="text" placeholder="输入关键词查找">
+            <button>搜索</button>
+        </div>
+    </header>
+    <div class="content clearfix">
+        <div class="content_left">
+            <div class="every_day" id="every_day">
+                <span>每日一句</span>
+                <p>{{getContent}}</p>
+            </div>
+            <div class="article_list" id="articleList">
+                <div class="article"  v-for="article in articleList">
+                    <a class="article_title" :href="article.link" style="text-decoration: none">{{article.title}}</a>
+                    <p class="article_content">{{article.content}}</p>
+                    <div class="article_footer">发布于{{article.ctimes}} |  浏览({{article.views}}) | Tags：{{article.tags}}</div>
+
+                </div>
+                <div class="page_tool" id="">
+                    <ul>
+                        <li v-for="item in pageNumList" v-on:click="jumpTo(item.page)" v-bind:class="{now_page:item.text == page}">{{item.text}}</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="content_right">
+            <div class="right_module" style="overflow:hidden">
+
+                <div class="random_cloud">随机标签云</div>
+                <div class="cloud_content" id="randomCloud" >
+                    <a href="/" v-for="tag in tags" v-bind:style="{color:randomColor(),fontSize:randomSize(),wordWrap:'wrap',wordBreak:'break-all',margin:'3px'}" v-bind:href="tag.link">{{tag.text}}</a>
+                </div>
+
+            </div>
+            <div class="right_module">
+                <div class="recent_hot">最近热门</div>
+                <ul class="hot_title" id="recentHot">
+                    <li v-for="item in hotArticle">
+                        <a :href="item.link">{{item.title}}</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="right_module">
+                <div class="recent_commen">最近评论</div>
+                <div class="commen_content" id="recentComments">
+                    <ul>
+                        <li v-for="comment in commentContent">
+                            <span>{{comment.author}}</span >
+                            <span class="ctime">{{comment.theTime}}</span>
+                            <a href="">{{comment.content}}</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="right_module">
+                <div class="friend_link">友情链接</div>
+                <ul class="friend_content">
+                    <li><a href="">挨踢茶馆</a><a href="">佛布朗斯基</a></li>
+                    <li><a href="">挨踢茶馆</a><a href="">佛布朗斯基</a></li>
+                    <li><a href="">挨踢茶馆</a><a href="">佛布朗斯基</a></li>
+                    <li><a href="">挨踢茶馆</a><a href="">佛布朗斯基</a></li>
+
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="fin_footer">
+        <ul>
+            <li>python</li>
+            <li>java</li>
+            <li>c/c++</li>
+            <li>php技术</li>
+            <li>CSDN</li>
+            <li>python</li>
+            <li>python</li>
+            <li>python</li>
+            <li>python</li>
+            <li>python</li>
+            <li>python</li>
+            <li>python</li>
+            <li>python</li>
+            <li>python</li>
+            <li>python</li>
+            <li>python</li>
+        </ul>
+        <p>Copyright © 2020-2030 陈旺个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>

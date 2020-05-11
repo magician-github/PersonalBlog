@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/blog_detail.css">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <span>个人博客 | 技术博客</span>
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/sitemap.html">地图</a></li>
+            <li><a href="/about.html">关于</a></li>
+            <li><a href="/guest.html">留言</a></li>
+        </ul>
+        <input type="text" placeholder="输入关键词查找">
+        <button>搜索</button>
+    </div>
+</header>
+<div class="content">
+    <div class="content_left">
+        <div class="blog" id="blog_detail">
+            <div class="blog_title">{{title}}</div>
+            <div class="blog_msg">作者：chen 标签：{{tags}} 浏览：({{views}}) 发布于：{{ctime}}</div>
+            <div class="blog_content" v-html="content"></div>
+        </div>
+        <div id="blog_Comment" style="margin-top: 20px">
+            <span class="about_letters">当前文章：目前{{totalCount}} 条留言</span>
+            <div class="blog_comments" v-for="item in comments">
+                <div class="vistor"><b>{{item.user_name}}:</b>{{item.options}}发表于 {{item.ctime}}<a style="cursor: pointer" v-on:click="reply(item.blog_id,item.user_name)">[回复]</a></div>
+                <p>{{item.comments}}</p>
+            </div>
+
+        </div>
+
+        <div class="send_commen" id="send_commen">
+        <div>发表评论</div>
+        <div>
+            <input type="hidden" value="-1" id="commen_reply">
+            <input type="hidden"  id="commen_reply_name" value="0">
+
+            <input id="commen_name" type="text" placeholder="昵称">
+            <input type="text" id="commen_email" placeholder="邮箱(评论被回时你能收到通知)">
+        </div>
+        <div>
+            <textarea placeholder="无意义的内容我可能不会回复你" id="commen_content"></textarea>
+        </div>
+        <div>
+            <input type="text" placeholder="验证码(区分大小写)" id="commen_code">
+            <span v-html="vcode" style="margin-top: 10px" @click="changeCode()"></span>
+        </div>
+        <button v-on:click="sendComment()">提交评论</button>
+    </div>
+
+
+    </div>
+    <div class="content_right">
+        <div class="right_module" style="overflow:hidden">
+
+            <div class="random_cloud">随机标签云</div>
+            <div class="cloud_content" id="randomCloud" >
+                <a href="/" v-for="tag in tags" v-bind:style="{color:randomColor(),fontSize:randomSize(),wordWrap:'wrap',wordBreak:'break-all',margin:'3px'}">{{tag.text}}</a>
+            </div>
+
+        </div>
+        <div class="right_module">
+            <div class="recent_hot">最近热门</div>
+            <ul class="hot_title" id="recentHot">
+                <li v-for="one in hotArticle">
+                    <a :href="one.link">{{one.title}}</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="right_module">
+            <div class="recent_commen">最近评论</div>
+            <div class="commen_content" id="recentComments">
+                <ul>
+                    <li v-for="comment in commentContent">
+                        <span>{{comment.author}}</span >
+                        <span class="ctime">{{comment.theTime}}</span>
+                        <a href="">{{comment.content}}</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="right_module">
+            <div class="friend_link">友情链接</div>
+            <ul class="friend_content">
+                <li><a href="">挨踢茶馆</a><a href="">佛布朗斯基</a></li>
+                <li><a href="">挨踢茶馆</a><a href="">佛布朗斯基</a></li>
+                <li><a href="">挨踢茶馆</a><a href="">佛布朗斯基</a></li>
+                <li><a href="">挨踢茶馆</a><a href="">佛布朗斯基</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+<div class="fin_footer">
+    <ul>
+        <li>python</li>
+        <li>java</li>
+        <li>c/c++</li>
+        <li>php技术</li>
+        <li>CSDN</li>
+        <li>python</li>
+        <li>python</li>
+        <li>python</li>
+        <li>python</li>
+        <li>python</li>
+        <li>python</li>
+        <li>python</li>
+        <li>python</li>
+        <li>python</li>
+        <li>python</li>
+        <li>python</li>
+    </ul>
+    <p>Copyright © 2020-2030 陈旺个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+</div>
+<script src="./js/vue.js"></script>
+<script src="./js/axios.js"></script>
+<script src="./js/base.js"></script>
+<script src="./js/blog_detail.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+* {
+    margin:0;
+    padding:0;
+}
+.content {
+    border:1px solid red;
+    width:1170px;
+    margin:30px auto;
+    position: relative;
+}
+.content .content_left {
+    box-sizing: border-box;
+    float: left;
+    display: inline-block;
+    width:66%;
+    padding:10px;
+    /*background: white;*/
+
+}
+.content:after {
+    display: block;
+    height: 0;
+    width:0;
+    content: '';
+    clear: both;
+}
+
+.content .content_right {
+    float:right;
+    width:34%;
+    /*box-sizing: border-box;*/
+    padding: 0px 0px 0px 0px;
+}
+.content .every_day{
+    padding:5px 5px;
+    background: white;
+}
+.content .every_day span {
+    font-size: 12px;
+}
+.content .every_day span:before {
+    content: "\e122";
+    position: relative;
+    font-family: MyIcon;
+    left: 65px;
+
+}
+.content .every_day p {
+    padding: 10px;
+}
+.article_list {
+    width:100%;
+    display: inline-block;
+}
+.article {
+    width:100%;
+    background: white;
+    box-shadow: 1px 2px 3px #000011;
+    margin:15px 0;
+    word-wrap: break-word;
+    word-break: break-all;
+    box-sizing: border-box;
+    padding:15px 0px 0px 0px;
+}
+.article a {
+    font-size: 18px;
+    padding:15px 0px 0px 15px;
+    /*padding:20px 0;*/
+}
+.article a:hover {
+    color:#0000ab;
+}
+.article .article_content {
+    padding:10px 0;
+    font-size: 14px;
+    text-indent: 2em;
+}
+.article .article_footer {
+    width:100%;
+    background: #000011;
+    color:#eeeeee;
+    text-indent: 2em;
+}

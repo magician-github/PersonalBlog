@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="./css/sitemap.css">
+</head>
+<body>
+    <div class="title">陈旺's个人博客  SiteMap</div>
+    <div class="per_map"><a href="">陈旺个人博客</a>>> <a href="/">站点地图</a></div>
+    <div class="re_article" id="blog_list">
+        <span>最新文章</span>
+        <ul>
+            <li v-for="(item,index) in articleList"><a :href="item.link">{{item.title}}<span @click="handleDelete(index)" style="color:red;font-weight:bolder;text-decoration: underline">delete</span></a></li>
+
+
+        </ul>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.js"></script>
+    <script src="./js/sitemap.js"></script>
+
+</body>
+</html>

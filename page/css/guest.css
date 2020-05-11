@@ -1,0 +1,35 @@
+.about_blog {
+    background: white;
+    word-break: break-all;
+    word-wrap: break-word;
+    height: auto;
+    margin-top:10px;
+}
+.about_blog .about_me {
+    padding:10px;
+    font-weight: 600;
+    font-size: 20px;
+    border-bottom:1px solid #eeeeee;
+}
+.about_blog p {
+    color:lightslategrey;
+    margin:5px;
+    margin-left:10px;
+    font-size: 15px;
+
+}
+.about_letters {
+    margin-top:15px;
+    margin-left:5px;
+    display: block;
+    font-size: 17px;
+}
+.blog_comments {
+    margin-top: 10px;
+    border: 1px dashed #eeeeee;
+    background: lightskyblue;
+    padding: 10px;
+}
+.blog_comments p {
+    text-indent: 2%;
+}
